@@ -17,7 +17,7 @@ body {
     background-color: var(--beige);
     margin: 0px;
     width:100%; 
-    min-height: 200vh;
+    min-height: 100vh;
 
     animation: fadeInAnimation ease 1s;
     animation-iteration-count: 1;
@@ -29,14 +29,19 @@ p {
     /* font-weight: 500; */
 }
 
-@keyframes fadeInAnimation {
+h4 {
+    /* margin-top: -1rem; */
+    margin-bottom: -5px;
+    line-height: 95%;
+}
+/* @keyframes fadeInAnimation {
     0% {
         opacity: 0;
     }
     100% {
         opacity: 1;
     }
-}
+} */
 #navbar {
     background-color:var(--sand);
     position: fixed;
@@ -181,19 +186,24 @@ input {
 }
 
 article {
+    transform: scale(1);
     opacity: 0;
     transform: translate(0, 5vh);
     transition: all 2s;
 
-    height:80vh;
+    height:70vh;
     /* width: 60vw; */
     margin: 1.5rem;
     /* padding: 1rem; */
 }
 
+article :hover {
+    transform: scale(1.5);
+}
+
 article .wrapper {
-    /* height:20vh;
-    width: 17vw; */
+    /* height:20vh; */
+    width: 17vw;
     background-color: var(--beige);
     height: 100%;
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
@@ -205,6 +215,7 @@ article .wrapper {
     /* height:20vh; */
     /* width: 17vw; */
     white-space: normal;
+    text-align: center;
     display:flex;
     flex-direction: column;
     align-items: center;
@@ -217,13 +228,13 @@ article .img {
     background-color: transparent;
     border-radius: 15px 15px 0 0;
     justify-content: center;
+    
 }
 
 article img {
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
     border-radius: 15px 15px 0 0;
-    
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.10);
 }
 
