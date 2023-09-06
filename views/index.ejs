@@ -22,16 +22,23 @@
         <section class="content">
             <input type="search" class="searchbar" style=" border-radius: 25px; border:0px; height: 2rem; width:20rem;" id="search" placeholder="Search...">
             <div class="sec">
-                <div class="card">
-                    <p>Hello there!</p>
-                </div>
-                <div class="card">
-                    Hello there!
-                </div>
-                <div class="card">
-                    Hello there!
-                </div>
-            </div>
+            <!-- <div class="sec " id="infiniteScroll--left"> -->
+             <% for (var i = 0; i < bookData.length; i++) { %>
+                <article>
+                  <div class="wrapper">
+                    <div class="img">
+                      <img src= "<%= bookData[i].book_image %>"></img>
+                    </div>
+                    <div class="book-body">
+                      <h5><%= bookData[i].title %></h5>
+                      <!-- <p><%= bookData[i].author %></p> -->
+                      
+                      <!-- <p> <%= bookData[i].description %></p> -->
+                    </div>
+                  </div>
+                </article>
+              <% } %>
+              </div>
 
         </section>
     <script src="js/script.js"></script>

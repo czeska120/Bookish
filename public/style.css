@@ -55,7 +55,9 @@ p {
     padding: 15px;
     text-decoration: none;
     font-size: 17px;
-    margin: -0.25rem;
+    margin-top: -1rem;
+    margin-bottom: -1rem;
+    margin-right: 1rem;
 }
 
 .parallax-container {
@@ -79,7 +81,7 @@ h1 {
     z-index: -1;
     text-align: center;
     position: fixed;
-    left: 35vw;
+    left: 37vw;
     font-size: clamp(5rem, 5vw, 6vh);
 }
 
@@ -132,27 +134,9 @@ h1 {
     background-color: var(--red);
     min-height: 120vh;
     display:flex;
-    justify-content: center;
+    /* justify-content: center; */
     align-items: center;
     flex-direction: column;
-}
-
-.sec {
-    display: flex;
-    flex: flex-wrap;
-    align-content: space-between;
-}
-
-.card {
-    background-color: var(--beige);
-    min-height:50vh;
-    min-width: 20vw;
-    margin: 5rem;
-}
-
-.card p {
-    padding: 1rem;
-    margin-top:-0.15rem;
 }
 
 input {
@@ -163,12 +147,87 @@ input {
     opacity: 0;
     transform: translate(0, 5vh);
     transition: all 1s;
+    margin-top: 4rem;
+    margin-bottom: 1rem;
 }
 
-.searchbar.visible {
+.visible {
     opacity: 1;
     transform: translate(0, 0);
-  }
+}
+
+  /* CAROUSEL STYLE */
+.sec {
+    width: 100vw;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+    background-color: var(--red);
+    display: flex;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    padding-bottom: 1rem;
+}
+
+.scroll-disabler {
+    width: 100vw;
+    height: fit-content;
+    position: absolute;
+    background-color: rgba(0,0,0 , 0.0001);
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+article {
+    opacity: 0;
+    transform: translate(0, 5vh);
+    transition: all 2s;
+
+    height:80vh;
+    /* width: 60vw; */
+    margin: 1.5rem;
+    /* padding: 1rem; */
+}
+
+article .wrapper {
+    /* height:20vh;
+    width: 17vw; */
+    background-color: var(--beige);
+    height: 100%;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    border-radius: 25px;
+    padding: 1rem;
+}
+
+.book-body {
+    /* height:20vh; */
+    /* width: 17vw; */
+    white-space: normal;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: center; */
+}
+
+article .img {
+    display:flex;
+    height: 70%;
+    background-color: transparent;
+    border-radius: 15px 15px 0 0;
+    justify-content: center;
+}
+
+article img {
+    height: 100%;
+    object-fit: cover;
+    border-radius: 15px 15px 0 0;
+    
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.10);
+}
+
+
 
 
 
