@@ -2,6 +2,7 @@
     <head>
         <%- include("partials/imports") -%>
         <title>Bookish</title>
+        <link rel="icon" type="image/x-icon" href="https://img.icons8.com/emoji/48/open-book-emoji.png">
     </head>
     <body>
         <div id="navbar">
@@ -10,7 +11,8 @@
         <div class="parallax-container">
             <div class="background">
                 <img src="/images/shelf.png" id="shelf1">
-                <h1 style="font-weight: 700;">Bookish</h1>
+                <h1 id="top-title" style="font-weight: 700;">Bookish</h1>
+                <p id="top-subtitle">A web app that utilizes the New York Times Book API.</p>
                 <img src="/images/shelf.png" id="shelf2">
             </div>
             
@@ -21,17 +23,14 @@
         </div>
         
         <section class="content">
-          
-            <input type="search" class="searchbar" style=" border-radius: 25px; border:0px; height: 2rem; width:20rem;" id="search" placeholder="What are you looking for?">
-            <!-- <div class="category">
-              <h4 style="color: var(--sand);"> Top Hardcover Fiction Books this week</h4>
-
-            </div> -->
-            <div class="sec">
+            <!-- <input type="search" class="searchbar" style=" border-radius: 25px; border:0px; height: 2rem; width:20rem;" id="search" placeholder="What are you looking for?"> -->
+            <div class="category">
+              <h4> Top Paperback Fiction Books this week</h4>
+            </div>
               
-            <!-- <div class="sec " id="infiniteScroll--left"> -->
+            <div class="sec " id="infiniteScroll--left">
              <% bookData.forEach(function(book) { %>
-                <article class="button" data-toggle="modal" data-target="#contentModal">
+                <article class="button" data-toggle="modal" data-target="#contentModal<%= book.rank %>">
                   <div class="wrapper grow button">
                     <div class="img">
                       <img src= "<%= book.book_image %>"></img>
@@ -43,28 +42,75 @@
                   </div>
                 </article>
                   <!-- Modal -->
-                  <div class="modal fade" id="contentModal" tabindex="-1" role="dialog">
+                  <div class="modal fade" id="contentModal<%= book.rank %>" tabindex="-1" role="dialog">
                     <div class="modal-dialog modal-dialog-centered" role="document">
                       <div class="modal-content">
                         <div class="modal-header">
-                          <h5 class="modal-title" id="exampleModalLabel"><%= book.title %></h5>
+                          <h5 class="modal-title"><%= book.title %></h5>
                           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                           </button>
                         </div>
                         <div class="modal-body">
-                          <img src= "<%= book.book_image %>"></img>
+                          <img class="modal-img" src="<%= book.book_image %>"></img>
+                          <p><%= book.description %>"</p>
                         </div>
                         <div class="modal-footer">
-                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                          <button type="button" class="btn btn-primary">Save changes</button>
+                          <a href="<%= book.buy_links[0].url %>" class="btn" target="_blank">
+                          <img src="http://images.amazon.com/images/G/01/associates/add-to-cart.gif">
+                          </a>
                         </div>
                       </div>
                     </div>
                   </div>
                 
               <% }) %>
-              </div>
+
+              
+            </div>
+
+
+            <div class="category">
+              <h4> Top Hardcover Fiction Books this week</h4>
+            </div>
+            <div class="sec " id="infiniteScroll--left">
+              <% bookData2.forEach(function(book2) { %>
+                <article class="button" data-toggle="modal" data-target="#contentModal<%= book2.rank %>">
+                  <div class="wrapper grow button">
+                    <div class="img">
+                      <img src= "<%= book2.book_image %>"></img>
+                    </div>
+                    <div class="book-body">
+                      <h5><%= book2.title %></h4>
+                      <p><%= book2.author %></p>
+                    </div>
+                  </div>
+                </article>
+                  <!-- Modal -->
+                  <div class="modal fade" id="contentModal<%= book2.rank %>" tabindex="-1" role="dialog">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title"><%= book2.title %></h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                          <img class="modal-img" src="<%= book2.book_image %>"></img>
+                          <p><%= book2.description %>"</p>
+                        </div>
+                        <div class="modal-footer">
+                          <a href="<%= book2.buy_links[0].url %>" class="btn" target="_blank">
+                          <img src="http://images.amazon.com/images/G/01/associates/add-to-cart.gif">
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                
+              <% }) %>
+            </div>
 
 
 

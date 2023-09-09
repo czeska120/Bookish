@@ -2,24 +2,26 @@ window.onscroll = function() {scrollFunction()};
     
 function scrollFunction() {
     const allArticles = document.querySelectorAll("article");
-
+	const allCategories = document.getElementsByClassName("category");
+	
     if (document.body.scrollTop > 250 || document.documentElement.scrollTop > 250) {
-        // document.getElementsByClassName("category").classList.add("visible");
 		document.getElementById("navbar").style.top = "0";
-        document.getElementById("search").classList.add("visible");
-		
         for (let article of allArticles) {
             article.classList.add("visible");
-            article.classList.add("visible");
         }
+
+		for (let category of allCategories) {
+			category.classList.add("visible");
+		}
     } else {
         document.getElementById("navbar").style.top = "-150px";
-        document.getElementById("search").classList.remove("visible");
-		// document.getElementById("category").classList.remove("visible");
         for (let article of allArticles) {
             article.classList.remove("visible");
-            article.classList.remove("visible");
         }
+
+		for (let category of allCategories) {
+			category.classList.remove("visible");
+		}
     }
 }
 
