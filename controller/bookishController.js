@@ -17,9 +17,7 @@ const bookishController = {
         } catch (err) {
             console.log(err);
         }
-        console.log(bookListData);
-        console.log("============== ONE BOOK AUTHOR ==========")
-        console.log(bookData[0].author);
+    
         res.render('index', {bookListData, bookData});
     }
     

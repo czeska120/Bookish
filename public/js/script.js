@@ -4,8 +4,10 @@ function scrollFunction() {
     const allArticles = document.querySelectorAll("article");
 
     if (document.body.scrollTop > 250 || document.documentElement.scrollTop > 250) {
-        document.getElementById("navbar").style.top = "0";
+        // document.getElementsByClassName("category").classList.add("visible");
+		document.getElementById("navbar").style.top = "0";
         document.getElementById("search").classList.add("visible");
+		
         for (let article of allArticles) {
             article.classList.add("visible");
             article.classList.add("visible");
@@ -13,6 +15,7 @@ function scrollFunction() {
     } else {
         document.getElementById("navbar").style.top = "-150px";
         document.getElementById("search").classList.remove("visible");
+		// document.getElementById("category").classList.remove("visible");
         for (let article of allArticles) {
             article.classList.remove("visible");
             article.classList.remove("visible");
